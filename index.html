@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofoliu de învățare - De la zero la Junior Web Developer">
+    <meta name="author" content="Cristian">
+    <title>Web Development Journey - Cristian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .progress-bar {
+            background: #ecf0f1;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            height: 100%;
+            width: 16.6%; /* 1 din 6 lecții completate */
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .lesson-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .lesson-card.completed {
+            border-left: 5px solid #27ae60;
+        }
+        
+        .lesson-card.current {
+            border-left: 5px solid #3498db;
+            background: #f8f9fa;
+        }
+        
+        .lesson-card.upcoming {
+            border-left: 5px solid #e74c3c;
+            opacity: 0.8;
+        }
+        
+        .lesson-number {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .lesson-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .lesson-description {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        .btn-completed {
+            background: #27ae60;
+        }
+        
+        .btn-completed:hover {
+            background: #219a52;
+        }
+        
+        .btn-upcoming {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .status-completed {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+        
+        .status-current {
+            background: #d6eaf8;
+            color: #3498db;
+        }
+        
+        .status-upcoming {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+        
+        footer {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .resources {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .resources h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .resources-list {
+            list-style: none;
+        }
+        
+        .resources-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .resources-list a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Web Development Journey</h1>
+            <p class="subtitle">De la zero la Junior Web Developer în 6 luni</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="progress-text">Progres: 1/6 lecții completate</div>
+        </header>
+
+        <section class="lessons-grid">
+            <!-- Lecția 1 - Completată -->
+            <div class="lesson-card completed">
+                <span class="status status-completed">✓ COMPLETAT</span>
+                <div class="lesson-number">Lecția 1</div>
+                <h3 class="lesson-title">Bazele HTML</h3>
+                <p class="lesson-description">
+                    Structura documentului, tag-uri de bază, meta tags, link-uri și formulare simple.
+                </p>
+                <a href="lectia1.html" class="btn btn-completed">Vezi Lecția</a>
+            </div>
+
+            <!-- Lecția 2 - În desfășurare -->
+            <div class="lesson-card current">
+                <span class="status status-current">📖 ÎN DESFĂȘURARE</span>
+                <div class="lesson-number">Lecția 2</div>
+                <h3 class="lesson-title">Formulare, Tabele, Imagini</h3>
+                <p class="lesson-description">
+                    Formulare avansate, tabele structurate, imagini și elemente multimedia.
+                </p>
+                <a href="lectia2.html" class="btn">Continuă Lecția</a>
+            </div>
+
+            <!-- Lecția 3 - Viitoare -->
+            <div class="lesson-card upcoming">
+                <span class="status status-upcoming">⏳ URMĂTOAREA</span>
+                <div class="lesson-number">Lecția 3</div>
+                <h3 class="lesson-title">Elemente Semantice Avansate</h3>
+                <p class="lesson-description">
+                    HTML5 semantic elements, accessibility, best practices.
+                </p>
+                <a href="#" class="btn btn-upcoming">În curând</a>
+            </div>
+
+            <!-- Lecția 4 - Viitoare -->
+            <div class="lesson-card upcoming">
+                <span class="status status-upcoming">🎯 PLANIFICATĂ</span>
+                <div class="lesson-number">Lecția 4</div>
+                <h3 class="lesson-title">CSS - Bazele Stilizării</h3>
+                <p class="lesson-description">
+                    Selectori, proprietăți de bază, box model, culori și fonturi.
+                </p>
+                <a href="#" class="btn btn-upcoming">În curând</a>
+            </div>
+
+            <!-- Lecția 5 - Viitoare -->
+            <div class="lesson-card upcoming">
+                <span class="status status-upcoming">🎯 PLANIFICATĂ</span>
+                <div class="lesson-number">Lecția 5</div>
+                <h3 class="lesson-title">CSS - Layout și Responsive</h3>
+                <p class="lesson-description">
+                    Flexbox, Grid, Media Queries pentru design responsive.
+                </p>
+                <a href="#" class="btn btn-upcoming">În curând</a>
+            </div>
+
+            <!-- Lecția 6 - Viitoare -->
+            <div class="lesson-card upcoming">
+                <span class="status status-upcoming">🎯 PLANIFICATĂ</span>
+                <div class="lesson-number">Lecția 6</div>
+                <h3 class="lesson-title">JavaScript Fundamentals</h3>
+                <p class="lesson-description">
+                    Variabile, funcții, condiții, bucle și manipularea DOM.
+                </p>
+                <a href="#" class="btn btn-upcoming">În curând</a>
+            </div>
+        </section>
+
+        <section class="resources">
+            <h2>📚 Resurse Utile</h2>
+            <ul class="resources-list">
+                <li>
+                    <strong>🌐 Repository GitHub:</strong> 
+                    <a href="https://github.com/kerisk/lectii-html" target="_blank">github.com/kerisk/lectii-html</a>
+                </li>
+                <li>
+                    <strong>🚀 Live Demo:</strong> 
+                    <a href="https://kerisk.github.io/lectii-html/" target="_blank">kerisk.github.io/lectii-html</a>
+                </li>
+                <li>
+                    <strong>📖 Documentație MDN:</strong> 
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Guide</a>
+                </li>
+                <li>
+                    <strong>🎓 W3Schools:</strong> 
+                    <a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML Tutorial</a>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>💡 <strong>Strategie de învățare:</strong> Consistență (2-3 ore/zi) • Practică • Proiecte reale</p>
+            <p>🎯 <strong>Obiectiv pe termen scurt:</strong> Site personal complet cu HTML + CSS după 2 săptămâni</p>
+            <p>&copy; 2024 Cristian - Web Development Journey. Toate drepturile rezervate.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Mică animație pentru progres
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.querySelector('.progress');
+            setTimeout(() => {
+                progressBar.style.width = '16.6%';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
