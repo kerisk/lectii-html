@@ -9,8 +9,13 @@
   </head>
   <body>
     <h1>Lectia 2 HTML</h1>
+    <!-- SECȚIUNE FORMULARE -->
     <h2>Formulare</h2>
     <form action="procesare-date" method="POST">
+    <!-- GRUP DATE PERSONALE -->
+    <fieldset>
+      <legend>Date personale</legend>
+      <!-- ... -->
       <!-- Elementele formularului vor fi aici -->
       <h3>Elemente in formulare: </h3>
       <p>Etichete, casete text(introducere text) </p>
@@ -22,6 +27,7 @@
       <br>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" value="parola ta" required>
+    </fieldset>
       <br>
       <p>Meniu culisant</p>
       <label for="oras">Oraș:</label>
@@ -107,12 +113,12 @@
     <audio controls>
       <source src="audio-example.mp3" type="audio/mpeg">
         Browser-ul tău nu suportă elementul audio.
-      </audio>
-      <h3>Element Video</h3>
-      <video width="320" height="240" controls>
-        <source src="video-example.mp4" type="video/mp4">
-          Browser-ul tău nu suportă elementul video.
-      </video>
-
+    </audio>
+    <h3>Element Video</h3>
+    <video width="320" height="240" controls>
+      <source src="video-example.mp4" type="video/mp4">
+        Browser-ul tău nu suportă elementul video.
+    </video>
+    <a href="index.html">INAPOI LA DASHBOARD</a>
   </body>
 </html>
